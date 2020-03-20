@@ -1,0 +1,105 @@
+body{
+    font-family: 'Raleway', sans-serif;
+    color:rgb(80,80,80);
+}
+
+.links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+.nodes circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+rect {
+    fill: none;
+    border: 1px solid black;
+}
+
+#main-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.squeeze-row{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+
+input[type='range']::-moz-focus-outer { 
+    border: 0; 
+}
+
+#infection-prob-div{
+    margin-top:30px;
+}
+#slider-div{
+    margin-right:15px;
+}
+#info-div{
+    margin-top:20px;
+}
+
+a.custom-button{
+    display:inline-block;
+    padding:0.5em 3em;
+    border:0.16em solid #939393;
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:400;
+    text-align:center;
+    transition: all 0.15s;
+    border-radius: 20px;
+    cursor: pointer;
+}
+a.custom-button:hover{
+    background-color:#ddd;
+}
+a.custom-button:active{
+    color:#BBBBBB;
+}
+
+/* CSS related to the modal */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('/static/ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading .modal {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+/* END CSS related to the modal */

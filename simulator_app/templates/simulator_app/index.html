@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+    <head>
+        <link href="/static/style.css", rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="info-div">
+                <h2>Infection transmission modeling</h2>
+                <p>
+                    Using a virtual model of human social networks, visualize the spread of disease as you isolate
+                    members of the population.
+                </p>
+                <p>
+                    Read more about the simulation <a href="#">here</a> 
+                </p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Note: if the interaction network goes off-screen, just zoom out.  It's still there!
+                    </p> 
+                    <div class="row">               
+                        <svg><g id="root"></g></svg>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="squeeze-row">
+                                <div id="rm-mode-toggle" class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="checked">
+                                    <label class="custom-control-label" for="customRadioInline1">Node removal mode</label>
+                                </div>
+                                <div id="infect-mode-toggle" class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadioInline2">Infection mode</label>
+                                </div>
+                            </div>
+                            <div id="infection-prob-div" class="row">
+                                <div id="slider-div">
+                                    <input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="infection-prob-slider">
+                                </div>
+                                <span>Infection probability:</span> <span id="infection-prob-readout"></span>
+                            </div>
+                        </div>    
+                        <div>
+                            <a id="reset-sim" class="custom-button">Reset</a>
+                            <a id="start-sim" class="custom-button">Simulate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="history-plot-area">
+                    </div>
+                </div>  
+            </div>    
+        </div>
+        <div class="modal"></div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    </script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="{{ url_for('static', filename='fetch.js') }}"></script>
+    <script src="{{ url_for('static', filename='simulator.js') }}"></script>
+   
+</html>
