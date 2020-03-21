@@ -3,6 +3,10 @@ body{
     color:rgb(80,80,80);
 }
 
+svg {
+    width:100%;
+}
+
 .links line {
     stroke: #999;
     stroke-opacity: 0.6;
@@ -18,9 +22,73 @@ rect {
     border: 1px solid black;
 }
 
+#wrapper {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+#content-div {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column; 
+}
+
+#controls-div {
+    display:flex;
+    flex-direction: column;
+}
+
+#first-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+#radio-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+#button-div {
+    display: flex;
+    flex-direction: column;  
+}
+
+#second-controls {
+    margin-top:30px;
+}
+
+#history-plot-area {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 800px){
+    #wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    #button-div {
+        flex-direction: row;
+    }
+    #controls-div {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #second-controls {
+        margin-top:5px;
+    }
+    #history-plot-area {
+        width:40%;
+    }
+}
+
 #main-container {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     flex-direction: column;
 }
 
@@ -47,6 +115,8 @@ input[type='range']::-moz-focus-outer {
 
 #infection-prob-div{
     margin-top:30px;
+    display: flex;
+    flex-direction: row;
 }
 #slider-div{
     margin-right:15px;

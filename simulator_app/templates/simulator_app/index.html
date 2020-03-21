@@ -17,17 +17,17 @@
                     Read more about the simulation <a href="https://brianlawney.me/blog/simulating-disease-spread/">here</a> 
                 </p>
             </div>
-            <div class="row">
-                <div class="col">
+            <div id="wrapper">
+                <div id="content-div">
                     <p>
                         Note: if the interaction network goes off-screen, just zoom out.  It's still there!
                     </p> 
-                    <div class="row">               
+                    <div id="graph-container">               
                         <svg><g id="root"></g></svg>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="squeeze-row">
+                    <div id="controls-div">
+                        <div id="first-controls">
+                            <div id="radio-wrapper">
                                 <div id="rm-mode-toggle" class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="checked">
                                     <label class="custom-control-label" for="customRadioInline1">Node removal mode</label>
@@ -37,25 +37,25 @@
                                     <label class="custom-control-label" for="customRadioInline2">Infection mode</label>
                                 </div>
                             </div>
-                            <div id="infection-prob-div" class="row">
+                            <div id="infection-prob-div">
                                 <div id="slider-div">
                                     <input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="infection-prob-slider">
                                 </div>
                                 <span>Infection probability:</span> <span id="infection-prob-readout"></span>
                             </div>
-                        </div>    
-                        <div>
-                            <a id="reset-sim" class="custom-button">Reset</a>
-                            <a id="start-sim" class="custom-button">Simulate</a>
+                        </div>
+                        <div id="second-controls">
+                            <div id="button-div">
+                                <a id="reset-sim" class="custom-button">Reset</a>
+                                <a id="start-sim" class="custom-button">Simulate</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div id="history-plot-area">
-                    </div>
-                </div>  
-            </div>    
-        </div>
+                <div id="history-plot-area">
+                </div>
+            </div> 
+        </div>    
         <div class="modal"></div>
     </body>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"

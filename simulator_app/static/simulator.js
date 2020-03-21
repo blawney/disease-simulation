@@ -382,9 +382,19 @@ function display_final_nodes(infected_nodes_pct) {
 
 function inject_svg(svg_text){
     
-    var _width = 0.4*screen_width;
-    var _height = 0.5*_width;
-    
+    var screen_width=screen.width;
+    var screen_height=screen.height;
+    if(screen_height > screen_width){
+        var _width = screen_width;
+        var _height = 0.5*_width;
+    } else {
+        var _width = 0.4*screen_width;
+        var _height = 0.5*_width;
+        if (_height < 350){
+            _height = 350;
+            _width = 2*_height;
+        }
+    }
     var _svg = d3.select('#history-plot-area').append('svg')
         .attr('width', _width)
         .attr('height', _height);
