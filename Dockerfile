@@ -16,10 +16,12 @@ RUN mkdir /www && \
     mkdir /www/simulator_app && \
     cd /www
 
-ADD gunicorn.conf /etc/supervisor/conf.d/gunicorn.conf
-ADD requirements.txt /www
-ADD simulator_app/* /www/simulator_app/
-ADD simulator.py /www/
+COPY supervisord.conf /etc/supervisor/alt.conf
+COPY gunicorn.conf /etc/supervisor/conf.d/gunicorn.conf
+COPY requirements.txt /www
+COPY wsgi.py /www
+COPY simulator_app/ /www/simulator_app/
+COPY simulator.py /www/
 
 # Install the python dependencies, as given from the repository:
 RUN pip3 install --no-cache-dir -r /www/requirements.txt
@@ -27,8 +29,13 @@ RUN pip3 install --no-cache-dir -r /www/requirements.txt
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-RUN groupadd -g 999 appuser && \
-    useradd -r -u 999 -g appuser appuser
+RUN groupadd -g 1001 appuser && \
+    useradd -l -u 1000 -g appuser appuser
+RUN chown --changes --silent --no-dereference --recursive --from 0:0 1000:1001 /usr/bin/supervisord /var/log/supervisor
+
+RUN touch /var/log/gunicorn.nx.log && chown appuser:appuser /var/log/gunicorn.nx.log /var/run /run
+RUN chown -R appuser:appuser /www
+
 USER appuser
 
-ENTRYPOINT ["supervisord"]
+ENTRYPOINT ["/bin/bash"]
