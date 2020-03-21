@@ -38,4 +38,4 @@ RUN chown -R appuser:appuser /www
 
 USER appuser
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/alt.conf"]
