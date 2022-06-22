@@ -15,7 +15,7 @@ kiwisolver==1.1.0
 MarkupSafe==1.1.1
 matplotlib==3.0.3
 networkx==2.4
-numpy==1.18.2
+numpy==1.22.0
 pandas==0.25.3
 post==2019.4.13
 public==2019.4.13
